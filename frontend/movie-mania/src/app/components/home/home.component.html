@@ -1,14 +1,18 @@
 <div class="movie-grid">
-    <mat-card class="movie-card" *ngFor="let movie of movies">
-      <img mat-card-image [src]="movie.poster" alt="Movie poster" />
+    <mat-card 
+      class="movie-card" 
+      *ngFor="let movie of movies" 
+      (click)="goToMovieDetails(movie.id)"
+    >
+      <img mat-card-image [src]="movie.posterUrl" alt="Movie poster" />
       <mat-card-content>
         <h3>{{ movie.name }}</h3>
-        <p>Year: {{ movie.year }}</p>
-        <p>IMDb: {{ movie.imdb }}</p>
+        <p>Watched Year: {{ movie.year }}</p>
+        <p>Rating: {{ movie.rating }} / 10</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-icon-button color="primary">
-          <mat-icon>favorite</mat-icon>
+        <button mat-icon-button color="primary" (click)="toggleFavorite(movie, $event)">
+          <mat-icon>{{ movie.isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
         </button>
       </mat-card-actions>
     </mat-card>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Movie</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="header">
+        <h1>Add a Movie</h1>
+      </div>
+      <div class="form-content">
+        <div class="image-section">
+          <img src="assets/formB2.png" alt="Add Movie" />
+        </div>
+        <div class="form-section">
+          <form (ngSubmit)="onSubmit()" #movieForm="ngForm" enctype="multipart/form-data">
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Movie Name</mat-label>
+              <input matInput name="name" [(ngModel)]="movie.name" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>What You Think</mat-label>
+              <textarea matInput name="description" [(ngModel)]="movie.description" required></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Watched Year</mat-label>
+              <input matInput name="year" [(ngModel)]="movie.year" type="number" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>IMDb Rating (out of 10)</mat-label>
+              <input matInput name="imdb" [(ngModel)]="movie.imdb" type="number" step="0.1" min="0" max="10" required />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="form-field">
+              <mat-label>Your Rating (out of 10)</mat-label>
+              <input matInput name="rating" [(ngModel)]="movie.rating" type="number" step="0.1" min="0" max="10" required />
+            </mat-form-field>
+
+            <div class="file-upload">
+              <label for="file">Upload Poster:</label>
+              <input type="file" id="file" (change)="onFileSelected($event)" required />
+            </div>
+
+            <button mat-raised-button color="primary" type="submit" class="submit-button">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
