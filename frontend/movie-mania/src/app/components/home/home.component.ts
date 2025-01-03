@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+
   ngOnInit() {
     this.fetchMovies();
   }

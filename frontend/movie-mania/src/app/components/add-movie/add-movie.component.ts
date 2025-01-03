@@ -10,9 +10,9 @@ export class AddMovieComponent {
   movie = {
     name: '',
     description: '',
-    year: 0,
-    imdb: 0,
-    rating: 0,
+    year: '',
+    imdb: '',
+    rating: '',
   };
   selectedFile: File | null = null;
 
